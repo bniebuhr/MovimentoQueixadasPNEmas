@@ -147,9 +147,10 @@ ggplot(data = mov.data.clean) +
   facet_wrap(~ name, scales = 'free')
 
 # There seem to be outliers, let's remove them
+
 # First we romeve the first points
 mov.data.clean <- mov.data.clean %>% 
-  dplyr::filter(timestamp > lubridate::ymd_hm('2019-04-08 00:00'))
+  dplyr::filter(timestamp > lubridate::ymd_hm('2019-04-08 00:00'), timestamp < lubridate::ymd_hm('2019-08-06 00:00'))
 
 # Remove outliers
 (names <- unique(mov.data.clean$name))
